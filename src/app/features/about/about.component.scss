@@ -1,0 +1,17 @@
+.about {
+  .tabs {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    a {
+      text-decoration: none;
+      color: #333;
+      padding: 8px 16px;
+      border-radius: 4px;
+      &.active {
+        background: #3498db;
+        color: #fff;
+      }
+    }
+  }
+}
