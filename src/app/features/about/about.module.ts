@@ -1,14 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MENU_TOKEN } from '../../shared/menu.token';
-import { Menu } from '../../shared/menu.model';
 import { AboutComponent } from './about.component';
-
+import { IntroductionService } from './introduction/introduction.service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { IntroductionComponent } from './introduction/introduction.component';
+import { ExperienceComponent } from './experience/experience.component';
+import { EducationComponent } from './education/education.component';
 @NgModule({
   declarations: [AboutComponent],
   imports: [
     CommonModule,
+    IntroductionComponent,
+    ExperienceComponent,
+    EducationComponent,
     RouterModule.forChild([
       {
         path: '',
@@ -17,19 +22,15 @@ import { AboutComponent } from './about.component';
           {
             path: '',
             pathMatch: 'full',
-            redirectTo: 'introduction'
-          }
-        ]
-      }
-    ])
+            redirectTo: 'introduction',
+          },
+        ],
+      },
+    ]),
   ],
   providers: [
-    { provide: MENU_TOKEN, useValue: [
-      { label: 'About', route: '/about' },
-      { label: 'Introduction', route: '/about/introduction' },
-      { label: 'Education', route: '/about/education' },
-      { label: 'Experience', route: '/about/experience' }
-    ] as Menu[] }
-  ]
+    provideHttpClient(withInterceptorsFromDi()),
+    IntroductionService
+  ],
 })
 export class AboutModule {}

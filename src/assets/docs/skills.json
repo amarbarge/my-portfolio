@@ -1,0 +1,66 @@
+{
+    "technicalSkills":[
+        {
+            "name":"Solution Architecture",
+            "icon":"fa-solid fa-diagram-project",
+            "barClass": "skills__css",
+            "percentage": "90%"
+        },
+        {
+            "name":".NET Framework",
+            "icon":"fa-brands fa-microsoft",
+            "barClass": "skills__css",
+            "percentage": "80%"
+        },
+        {
+            "name":"Angular",
+            "icon":"fa-brands fa-angular",
+            "barClass": "skills__css",
+            "percentage": "75%"
+        },
+        {
+            "name":"Flutter",
+            "icon":"fa fa-mobile-screen",
+            "barClass": "skills__css",
+            "percentage": "70%"
+        },
+        {
+            "name":"API Integration",
+            "icon":"fa-solid fa-plug",
+            "barClass": "skills__css",
+            "percentage": "85%"
+        }
+    ],
+    "professionalSkills":[
+        {
+            "name":"AGILE / Scrum Delivery",
+            "icon":"fa-brands fa-atlassian",
+            "barClass": "skills__bar6",
+            "percentage": "80%"
+        },
+        {
+            "name":"Stakeholder Communication",
+            "icon":"fa fa-users",
+            "barClass": "skills__bar7",
+            "percentage": "75%"
+        },
+        {
+            "name":"Escalation Management",
+            "icon":"fa fa-clipboard-list",
+            "barClass": "skills__bar8",
+            "percentage": "85%"
+        },
+        {
+            "name":"Mentoring Engineers",
+            "icon":"fa fa-chalkboard-teacher",
+            "barClass": "skills__bar9",
+            "percentage": "90%"
+        },
+        {
+            "name":"Cross-Functional Team Leadership",
+            "icon":"fa fa-users-cog",
+            "barClass": "skills__bar10",
+            "percentage": "80%"
+        }
+    ]
+}

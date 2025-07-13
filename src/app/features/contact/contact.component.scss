@@ -1,0 +1,76 @@
+// Reserve space for error messages so form height doesn't jump
+.contact__input-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.error-msg {
+  min-height: 1.2em;
+  height: 1.2em;
+  font-size: 0.95em;
+  color: #d32f2f;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+/* ===== CONTACT =====*/
+.contact {
+  &__input {
+    width: 100%;
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-semi);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1.5px solid var(--second-color);
+    outline: none;
+    margin-bottom: var(--mb-1);
+  }
+  &__button {
+    display: block;
+    border: none;
+    outline: none;
+    font-size: var(--normal-font-size);
+    cursor: pointer;
+    margin-left: auto;
+  }
+}
+
+.contact-flex-container {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.contact__container,
+.bd-grid {
+  flex: 1 1 320px;
+  min-width: 300px;
+}
+.contact-details-label {
+  font-weight: bold;
+  margin-right: 0.5rem;
+  padding: 10rem 0;
+}
+.contact-details-card {
+  /* Add your decorative styles here */
+}
+.contact-details-row {
+  margin-bottom: 1rem;
+}
+
+.error-msg {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.contact {
+  &__input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  div {
+    height: fit-content;
+  }
+}

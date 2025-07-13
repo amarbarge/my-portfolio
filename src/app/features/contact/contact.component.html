@@ -1,19 +1,116 @@
-  <!--===== CONTACT =====-->
-  <div class="contact section" id="contact">
-    <h2 class="section-title">Contact</h2>
+<!--===== CONTACT =====-->
+<div class="contact section" id="contact">
+  <h2 class="section-title">Contact</h2>
 
+  <div class="contact-flex-container">
     <div class="contact__container bd-grid">
-      <form action="" class="contact__form">
-        <input type="text" placeholder="Name" class="contact__input" />
-        <input type="mail" placeholder="Email" class="contact__input" />
-        <textarea
-          name=""
-          id=""
-          cols="0"
-          rows="10"
-          class="contact__input"
-        ></textarea>
-        <input type="button" value="Submit" class="contact__button button" />
+      <form
+        [formGroup]="contactForm"
+        (ngSubmit)="onSubmit()"
+        class="contact__form"
+        novalidate
+      >
+        <div class="contact__input-group">
+          <input
+            type="text"
+            formControlName="name"
+            placeholder="Name"
+            class="contact__input"
+          />
+          <div *ngIf="contactForm.get('name') as nameControl">
+            <div
+              *ngIf="nameControl.touched && nameControl.invalid"
+              class="error-msg"
+            >
+              Name is required.
+            </div>
+          </div>
+        </div>
+        <div class="contact__input-group">
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="Email"
+            class="contact__input"
+          />
+          <div *ngIf="contactForm.get('email') as emailControl">
+            <div
+              *ngIf="emailControl.touched && emailControl.errors as emailErrors"
+              class="error-msg"
+            >
+              <span *ngIf="emailErrors['required']">Email is required.</span>
+              <span *ngIf="emailErrors['emailInvalid']"
+                >Invalid email address.</span
+              >
+              <span *ngIf="emailErrors['emailUnsafe']"
+                >Email contains unsafe content.</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="contact__input-group">
+          <textarea
+            formControlName="message"
+            cols="0"
+            rows="8"
+            class="contact__input"
+            placeholder="Message (max 200 words)"
+          ></textarea>
+          <div *ngIf="contactForm.get('message') as messageControl">
+            <div
+              *ngIf="
+                messageControl.touched && messageControl.errors as messageErrors
+              "
+              class="error-msg"
+            >
+              <span *ngIf="messageErrors['required']"
+                >Message is required.</span
+              >
+              <span *ngIf="messageErrors['wordCount']"
+                >Message must be 200 words or less.</span
+              >
+              <span *ngIf="messageErrors['maxlength']"
+                >Message is too long.</span
+              >
+            </div>
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="contact__button button"
+          [disabled]="submitting"
+        >
+          {{ submitting ? "Sending..." : "Submit" }}
+        </button>
+        <div *ngIf="confirmationMessage" class="confirmation-msg">
+          {{ confirmationMessage }}
+        </div>
       </form>
     </div>
+    <div class="bd-grid">
+      <div class="contact-details-card">
+        <h2 class="contact-details-title">AMAR BHARAT BARGE</h2>
+        <div class="contact-details-row">
+          <span class="contact-details-label bold"
+            ><i class="fa fa-map"></i> Address:</span
+          >
+        </div>
+        <div class="contact-details-row">
+          <span class="contact-details-value">Kiwale, Pune, MH 412101</span>
+        </div>
+        <div class="contact-details-row">
+          <span class="contact-details-label"
+            ><i class="fa fa-phone"></i> Phone:</span
+          >
+          <span class="contact-details-value">+91 80 8207 1188</span>
+        </div>
+        <div class="contact-details-row">
+          <span class="contact-details-label"
+            ><i class="fa fa-envelope"></i> Email:</span
+          >
+          <span class="contact-details-value">meamarbarge&#64;gmail.com</span>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
